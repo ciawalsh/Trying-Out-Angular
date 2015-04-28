@@ -28,7 +28,8 @@
       <nav class="col-md-10">
         <!-- Body Content -->
         <ul class="items">
-          <li ng-repeat="item in items | filter:query | orderBy:orderProp">
+          <li ng-repeat="item in items | filter:query | orderBy:orderProp" class="thumbnail">
+            <img src={{item.image}} height="150" width="150">
             <h3>{{item.name}}</h3>
             <p>Colour: {{item.colour}}</p>
             <p>£{{item.price}}</p>
