@@ -17,13 +17,18 @@
       <nav class="col-md-2">
         <!-- Sidebar Content -->
         Search: <input ng-model="query">
+        Sort by:
+        <select ng-model="orderProp">
+          <option value="name">Alphabetical</option>
+          <option value="price">Price</option>
+        </select>
       </nav>
 
       <nav class="col-md-10">
         <!-- Body Content -->
         <ul class="items">
-          <li ng-repeat="item in items | filter:query">
-            ITEM: {{item.name}}
+          <li ng-repeat="item in items | filter:query | orderBy:orderProp">
+            <p>ITEM: {{item.name}}</p>
             <p>COLOUR: {{item.colour}}</p>
             <p>PRICE: £{{item.price}}</p>
             <p>QUANTITY LEFT: {{item.stock}}</p>

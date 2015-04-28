@@ -22,6 +22,33 @@ describe('Shop App', function() {
 
     });
 
+    it('should be possible to control the order of the items drop down sort box', function() {
+
+      var itemNameColumn = element.all(by.repeater('item in items').column('item.name'));
+      var query = element(by.model('query'));
+
+      function getNames() {
+        return itemNameColumn.map(function(elem) {
+          return elem.getText();
+        });
+      }
+
+      query.sendKeys('red');
+
+      expect(getNames()).toEqual([
+        "ITEM: Cotton Shorts",
+        "ITEM: Flip Flops"
+      ]);
+
+      element(by.model('orderProp')).element(by.css('option[value="price"]')).click();
+
+      expect(getNames()).toEqual([
+        "ITEM: Flip Flops",
+        "ITEM: Cotton Shorts"
+      ]);
+
+    });
+
   });
 
 });
