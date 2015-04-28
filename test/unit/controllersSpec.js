@@ -24,6 +24,6 @@ describe('Shop App controllers', function() {
     });
 
   });
-
+  
 });
 

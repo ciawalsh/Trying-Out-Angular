@@ -1,6 +1,6 @@
-var shopApp = angular.module('shopApp', []);
+var shopControllers = angular.module('shopControllers', []);
 
-shopApp.controller('ShopListCtrl', ['$scope', '$http',
+shopControllers.controller('ShopListCtrl', ['$scope', '$http',
   function($scope, $http) {
   $http.get('items/items.json').success(function(data) {
     $scope.items = data;
