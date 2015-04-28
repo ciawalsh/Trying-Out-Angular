@@ -17,7 +17,7 @@
   <nav class="row">
     <nav class="col-md-4 col-sm-5 col-xs-9" ng-repeat="item in items | filter:query | orderBy:orderProp" class="thumbnail">
       <img src={{item.image}} height="150" width="150">
-      <h3>{{item.name}}</h3>
+      <h3><b>{{item.name}}</b></h3>
       <p>Colour: {{item.colour}}</p>
       <p>£{{item.price}}</p>
       <p>Stock left: {{item.stock}}</p>

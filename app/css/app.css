@@ -4,6 +4,7 @@
 }
 
 body {
+  font-family: 'Josefin Sans', sans-serif;
   padding-top: 1em;
 }
 
@@ -19,6 +20,7 @@ body {
 
 .col-sm-5 {
   margin-bottom: 3em;
+  padding: 1em;
 }
 
 .col-xs-9 {
