@@ -1,17 +1,27 @@
-// describe('shopApp', function() {
+describe('Shop App', function() {
 
-//   beforeEach(function(){
-//     browser.get('index.html');
-//   });
+  describe('Item List view', function() {
 
-//   describe('ShopItemsCtrl', function() {
+    beforeEach(function(){
+      browser.get('index.html');
+    });
 
-//     browser.pause();
+    it('Should filter the item list as a user types into the search box', function() {
+      
+      var itemList = element.all(by.repeater('item in items'));
+      var query = element(by.model('query'));
 
-//     it('should create "items" model with at least 1 item of clothing', function() {
-//       expect(ElementArrayFinder(items).all(by.repeater('item in items')).count()).toEqual(1);
-//     });
+      expect(itemList.count()).toBe(13);
 
-//   });
+      query.sendKeys('Blue');
+      expect(itemList.count()).toBe(2);
 
-// });
+      query.clear();
+      query.sendKeys('Footwear');
+      expect(itemList.count()).toBe(5);
+
+    });
+
+  });
+
+});

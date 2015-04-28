@@ -11,16 +11,28 @@
 </head>
 
 <body ng-controller="ShopListCtrl">
-  
-  <ul>
-    <li ng-repeat="item in items">
-      <p>ITEM: {{item.name}}</p>
-      <p>COLOUR: {{item.colour}}</p>
-      <p>PRICE: £{{item.price}}</p>
-      <p>QUANTITY LEFT: {{item.stock}}</p>
-      <p>CATEGORY: {{item.category}}</p>
-    </li>
-  </ul>
+
+  <nav class="container-fluid">
+    <nav class="row">
+      <nav class="col-md-2">
+        <!-- Sidebar Content -->
+        Search: <input ng-model="query">
+      </nav>
+
+      <nav class="col-md-10">
+        <!-- Body Content -->
+        <ul class="items">
+          <li ng-repeat="item in items | filter:query">
+            ITEM: {{item.name}}
+            <p>COLOUR: {{item.colour}}</p>
+            <p>PRICE: £{{item.price}}</p>
+            <p>QUANTITY LEFT: {{item.stock}}</p>
+            <p>CATEGORY: {{item.category}}</p>
+          </li>
+        </ul>
+      </nav>
+    </nav>
+  </nav>
 
   <!-- In production use:
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>

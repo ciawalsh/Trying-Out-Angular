@@ -4,11 +4,11 @@ describe('shopApp controllers', function() {
 
     beforeEach(module('shopApp'));
 
-    it('should create "items" model with at least 1 item of clothing', inject(function($controller) {
+    it('should create "items" model with all the items of clothing', inject(function($controller) {
       var scope = {},
           ctrl = $controller('ShopListCtrl', {$scope:scope});
 
-      expect(scope.items.length).toBe(1);
+      expect(scope.items.length).toBe(13);
     }));
 
   });
