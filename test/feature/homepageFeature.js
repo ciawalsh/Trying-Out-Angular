@@ -36,15 +36,15 @@ describe('Shop App', function() {
       query.sendKeys('red');
 
       expect(getNames()).toEqual([
-        "ITEM: Cotton Shorts",
-        "ITEM: Flip Flops"
+        "Flip Flops",
+        "Cotton Shorts"
       ]);
 
-      element(by.model('orderProp')).element(by.css('option[value="price"]')).click();
+      element(by.model('orderProp')).element(by.css('option[value="name"]')).click();
 
       expect(getNames()).toEqual([
-        "ITEM: Flip Flops",
-        "ITEM: Cotton Shorts"
+        "Cotton Shorts",
+        "Flip Flops"
       ]);
 
     });

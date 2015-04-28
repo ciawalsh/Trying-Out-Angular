@@ -21,6 +21,7 @@
         <select ng-model="orderProp">
           <option value="name">Alphabetical</option>
           <option value="price">Price</option>
+          <option value="age">Newest</option>
         </select>
       </nav>
 
@@ -28,11 +29,11 @@
         <!-- Body Content -->
         <ul class="items">
           <li ng-repeat="item in items | filter:query | orderBy:orderProp">
-            <p>ITEM: {{item.name}}</p>
-            <p>COLOUR: {{item.colour}}</p>
-            <p>PRICE: £{{item.price}}</p>
-            <p>QUANTITY LEFT: {{item.stock}}</p>
-            <p>CATEGORY: {{item.category}}</p>
+            <h3>{{item.name}}</h3>
+            <p>Colour: {{item.colour}}</p>
+            <p>£{{item.price}}</p>
+            <p>Stock left: {{item.stock}}</p>
+            <p>Category: {{item.category}}</p>
           </li>
         </ul>
       </nav>
