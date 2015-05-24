@@ -1,0 +1,29 @@
+<h2>Basket</h2>
+<div>
+    <table class="table">
+        <tr>
+            <th>Description</th>
+            <th>Qty</th>
+            <th>Cost</th>
+            <th>Total</th>
+            <th></th>
+        </tr>
+        <tr ng-repeat="item in basket">
+            <td>{{item.name}}</td>           
+            <td>{{item.qty}}</td>
+            <td>{{item.cost}}</td>
+            <td>{{item.qty * item.cost | currency}}</td>
+            <td>
+                [<a href ng-click="removeItem($index)">X</a>]
+            </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>Total:</td>
+          <td>{{total() | currency}}</td>
+        </tr>
+    </table>
+</div>
+

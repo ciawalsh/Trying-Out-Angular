@@ -3,7 +3,7 @@ var shopApp = angular.module('shopApp', [
   'shopControllers'
 ]);
 
-shopApp.config(['$routeProvider', 
+shopApp.config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.
       when('/items', {
@@ -11,6 +11,9 @@ shopApp.config(['$routeProvider',
         controller: 'ShopListCtrl'
       }).
       // --- add more pages here ---
+      when('/basket', {
+        templateUrl: 'partials/basket.html',
+      }).
       otherwise({
         redirectTo: '/items'
       });

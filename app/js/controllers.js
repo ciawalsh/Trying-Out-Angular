@@ -6,4 +6,17 @@ shopControllers.controller('ShopListCtrl', ['$scope', '$http',
     $scope.items = data;
   });
   $scope.orderProp = 'age';
+
+  // ===== BASKET ======
+
+  $scope.basket = [];
+
+  $scope.add = function(item) {
+    item.qty = 1;
+    $scope.basket.push(item);
+  };
+
 }]);
+
+
+

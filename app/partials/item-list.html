@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default navbar-fixed-top">
   <div class="navbar-form navbar-left">
     <input ng-model="query" placeholder="Search" class="form-control">
     Sort by:
@@ -9,7 +9,7 @@
     </select>
   </div>
   <div class="navbar_right">
-    Basket | Checkout
+    <a href="/app/#/basket">Basket</a>
   </div>
 </nav>
 
@@ -22,7 +22,7 @@
       <p>£{{item.price}}</p>
       <p>Stock left: {{item.stock}}</p>
       <p>Category: {{item.category}}</p>
-      <p class="btn btn-primary" role="Button">Add to Cart</p>
+      <input class="btn btn-primary" type="button" value="Add to Basket" ng-click="add(item)">
     </nav>
   </nav>
 </nav>
