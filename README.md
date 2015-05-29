@@ -23,7 +23,7 @@ Please follow the commands on your terminal to download a copy of the app;
 
 ```
 git clone https://github.com/ciawalsh/Trying-Out-Angular.git
-cd AngularShop
+cd Trying-Out-Angular
 ```
 
 ##### Install Dependencies
@@ -43,7 +43,7 @@ this server is:
 npm start
 ```
 
-Now browse the app at `http://localhost:8000/app/index.html`.
+Now browse the app at `http://localhost:8000/app/`.
 
 #### Running Unit Tests
 
