@@ -8,11 +8,11 @@
             <th>Total</th>
             <th></th>
         </tr>
-        <tr ng-repeat="item in basket">
-            <td>{{item.name}}</td>           
-            <td>{{item.qty}}</td>
+        <tr ng-repeat='item in basket'>
+            <td>{{item.name}}</td>
+            <td ng-model="item.chosenAmount" ng-init="item.chosenAmount = 0">{{item.chosenAmount}}</td>
             <td>{{item.cost}}</td>
-            <td>{{item.qty * item.cost | currency}}</td>
+            <td>{{item.chosenAmount * item.cost | currency}}</td>
             <td>
                 [<a href ng-click="removeItem($index)">X</a>]
             </td>
@@ -22,8 +22,7 @@
           <td></td>
           <td></td>
           <td>Total:</td>
-          <td>{{total() | currency}}</td>
+          <td>{{ calculateTotal() | currency:"£" }}</td>
         </tr>
     </table>
 </div>
-

@@ -9,7 +9,7 @@
     </select>
   </div>
   <div class="navbar_right">
-    <a href="/app/#/basket">Basket</a>
+    <a href="/app/#/basket">Basket <span class="badge">0</span></a>
   </div>
 </nav>
 
@@ -22,7 +22,7 @@
       <p>£{{item.price}}</p>
       <p>Stock left: {{item.stock}}</p>
       <p>Category: {{item.category}}</p>
-      <input class="btn btn-primary" type="button" value="Add to Basket" ng-click="add(item)">
+      <input class="btn btn-primary" type="button" value="Add to Basket" ng-click="add(item); checkBasket()">
     </nav>
   </nav>
 </nav>
