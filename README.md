@@ -1,4 +1,4 @@
-# Testing in Angular 
+# Trying out Angular 
 ### A small shopping experience built with Angular.
 
 ![image](https://raw.githubusercontent.com/ciawalsh/Trying-Out-Angular/master/app/images/Screen%20Shot.png)
@@ -45,7 +45,7 @@ npm start
 
 Now browse the app at `http://localhost:8000/app/index.html`.
 
-### Running Unit Tests
+#### Running Unit Tests
 
 The easiest way to run the unit tests is to use the supplied npm script:
 
@@ -53,7 +53,7 @@ The easiest way to run the unit tests is to use the supplied npm script:
 npm test
 ```
 
-### End to end testing
+#### End to end testing
 
 Protractor simulates interaction with the web app and verifies that the application responds
 correctly. Therefore, the web server needs to be serving up the application, so that Protractor
