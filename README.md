@@ -1,7 +1,7 @@
 # Testing in Angular 
 ### A small shopping experience built with Angular.
 
-![image](https://github.com/ciawalsh/Trying-Out-Angular/app/images/Screen Shot.png?raw=true)
+![image](https://raw.githubusercontent.com/ciawalsh/Trying-Out-Angular/master/app/images/Screen%20Shot.png)
 
 ## Intro
 
