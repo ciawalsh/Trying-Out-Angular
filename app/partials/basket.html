@@ -17,8 +17,17 @@
         <td>{{item.price.toFixed(2) | currency:'£'}}</td>
         <td>{{item.chosenAmount * item.price | currency:'£'}}</td>
         <td>
-            [<a href ng-click="removeItem(item)">X</a>]
+            [<a href ng-click="removeItem(item); calculateTotal()">X</a>]
         </td>
+      </div>
+    </tr>
+    <tr>
+      <div class="row" ng-show="discountedTotal">
+        <td></td>
+        <td></td>
+        <td>Discount:</td>
+        <td>{{applyVoucher(voucher); voucherValue | currency:'£'}}</td>
+        <td></td>
       </div>
     </tr>
     <tr>
@@ -26,9 +35,17 @@
         <td></td>
         <td></td>
         <td>Total:</td>
-        <td>{{calculateTotal() | currency:'£'}}</td>
+        <td>{{discountedTotal | currency:'£'}}</td>
         <td></td>
       </div>
     </tr>
   </table>
+</div>
+
+<div class="vouchers">
+  <h4 style="text-decoration: underline">Go ahead and apply one of these vouchers if the certain conditions apply to you!</h4>
+  <div ng-repeat='voucher in vouchers'>
+    <p><strong>{{voucher.name}}</strong> - {{voucher.description}}</p>
+  </div>
+  <input type="text" ng-model="voucher" placeholder="Enter Voucher Code"/>
 </div>

@@ -22,7 +22,7 @@
       <p>{{item.price.toFixed(2) | currency:'£'}}</p>
       <p>Stock left: {{item.stock}}</p>
       <p>Category: {{item.category}}</p>
-      <input class="btn btn-primary" type="button" value="Add to Basket" ng-click="add(item); calculateTotal(); checkBasket()">
+      <input class="btn btn-primary add-to-basket" type="button" value="Add to Basket" ng-click="add(item); calculateTotal()">
     </nav>
   </nav>
 </nav>

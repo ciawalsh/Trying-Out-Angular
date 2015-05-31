@@ -6,7 +6,7 @@ describe('Shop App', function() {
       browser.get('index.html');
     });
 
-    it('Should filter the item list as a user types into the search box', function() {
+    it('Should display all items and then filter the item list as a user types into the search box', function() {
       
       var itemList = element.all(by.repeater('item in items'));
       var query = element(by.model('query'));
@@ -47,6 +47,37 @@ describe('Shop App', function() {
         "Flip Flops"
       ]);
 
+    });
+
+    it('shows the name of a product', function() {
+      var item = element.all(by.binding('item.name')).first();
+      expect(item.getText()).toContain('Almond Toe Court Shoes');
+    });
+
+    it('', function() {
+      var item = element.all(by.binding('item.colour')).first();
+      expect(item.getText()).toContain('Patent Black');
+    });
+
+    it('', function() {
+      var item = element.all(by.binding('item.price')).first();
+      expect(item.getText()).toContain('£99.00');
+    });
+
+    it('', function() {
+      var item = element.all(by.binding('item.stock')).first();
+      expect(item.getText()).toContain('5');
+    });
+
+    it('', function() {
+      var item = element.all(by.binding('item.category')).first();
+      expect(item.getText()).toContain("Women's Footwear");
+    });
+
+    it('', function() {
+      var itemList = element.all(by.repeater('item in items')).first();
+      var source = itemList.element(by.tagName('img')).getAttribute('src');
+      expect(source).toEqual("http://localhost:8000/app/images/Almond-Toe-Patent.jpeg");
     });
 
   });

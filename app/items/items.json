@@ -5,7 +5,7 @@
    "colour": "Patent Black",
    "price": 99.00,
    "stock": 5,
-   "category": "Woman's Footwear",
+   "category": "Women's Footwear",
    "image": "images/Almond-Toe-Patent.jpeg"
   },
   {
@@ -14,7 +14,7 @@
    "colour": "Blue",
    "price": 42.00,
    "stock": 4,
-   "category": "Woman's Footwear",
+   "category": "Women's Footwear",
    "image": "images/Blue-Suede-Shoes.jpg"
   },
   {
@@ -50,7 +50,7 @@
    "colour": "Black",
    "price": 167.00,
    "stock": 6,
-   "category": "Woman's Casualwear",
+   "category": "Women's Casualwear",
    "image": "images/Gold-Button-Cardigan-Black.jpeg"
   },
   {
@@ -104,7 +104,7 @@
    "colour": "Black",
    "price": 270.00,
    "stock": 10,
-   "category": "Woman's Formalwear",
+   "category": "Women's Formalwear",
    "image": "images/Bird-Print-Dress.png"
   },
   {
@@ -113,7 +113,7 @@
    "colour": "Pink",
    "price": 540.00,
    "stock": 5,
-   "category": "Woman's Formalwear",
+   "category": "Women's Formalwear",
    "image": "images/Mid-Cut-Out-Dress-Pink.jpeg"
   }
 ]
