@@ -17,7 +17,7 @@
         <td>{{item.price.toFixed(2) | currency:'£'}}</td>
         <td>{{item.chosenAmount * item.price | currency:'£'}}</td>
         <td>
-            [<a href ng-click="removeItem(item); calculateTotal()">X</a>]
+            [<a id="remove-item" href ng-click="removeItem(item); calculateTotal()">X</a>]
         </td>
       </div>
     </tr>
@@ -35,7 +35,7 @@
         <td></td>
         <td></td>
         <td>Total:</td>
-        <td>{{discountedTotal | currency:'£'}}</td>
+        <td id="total">{{discountedTotal | currency:'£'}}</td>
         <td></td>
       </div>
     </tr>
@@ -47,5 +47,6 @@
   <div ng-repeat='voucher in vouchers'>
     <p><strong>{{voucher.name}}</strong> - {{voucher.description}}</p>
   </div>
-  <input type="text" ng-model="voucher" placeholder="Enter Voucher Code"/>
+  <input type="text" ng-model="voucher" id='voucher-input' placeholder="Enter Voucher Code"/>
+  <p id="voucher-message">{{voucherMessage}}</p>
 </div>

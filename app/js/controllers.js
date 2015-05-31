@@ -1,7 +1,3 @@
-// var shopControllers = angular.module('shopControllers', []);
-
-// shopControllers
-
 shopApp.controller('ShopListCtrl', ['$scope', '$http',
   function($scope, $http) {
   $http.get('items/items.json').success(function(data) {
@@ -21,17 +17,18 @@ shopApp.controller('ShopListCtrl', ['$scope', '$http',
     if (item.stock > 0) {
       if($scope._isItemInBasket(item)){
         $scope._increaseItemInBasketQty(item);
+        item.stock -= 1
       } else {
         item.chosenAmount = 1;
         $scope.basket.push(item);
+        item.stock -= 1
       };
     };
-    item.stock -= 1;
   };
 
   $scope.calculateTotal = function() {
     $scope.total = 0;
-    for(var i = 0; i < $scope.basket.length; i++) { 
+    for(var i=0; i<$scope.basket.length; i++) { 
       $scope.total += ($scope.basket[i].price * $scope.basket[i].chosenAmount);
     };
     return $scope.total;
@@ -67,18 +64,15 @@ shopApp.controller('ShopListCtrl', ['$scope', '$http',
 
   $scope.applyVoucher = function (voucher) {
     var validVoucher = $scope._checkVoucher(voucher);
-    // console.log(validVoucher+"apply voucher stage");
     if(validVoucher) {
       $scope.discountedTotal = $scope.calculateTotal() - validVoucher.value;
       $scope.voucherValue = validVoucher.value;
-    } else if(voucher != undefined) {
+      $scope._updateMessage("Applied the " + validVoucher.name + " voucher!");
+    } else if(voucher === undefined) {
       $scope.discountedTotal = $scope.total;
-    };
+      $scope._updateMessage("Invalid voucher :(");
+    }
   };
-
-  // $scope.consoleCheckVoucher = function () {
-  //   console.log();
-  // };
 
   // ==== Private Methods ====
 
@@ -97,7 +91,7 @@ shopApp.controller('ShopListCtrl', ['$scope', '$http',
   };
 
   $scope._updateMessage = function (string) {
-    $scope.message = string;
+    $scope.voucherMessage = string;
   };
 
   $scope._checkVoucher = function(voucher) {

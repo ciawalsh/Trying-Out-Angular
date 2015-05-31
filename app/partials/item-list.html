@@ -9,7 +9,7 @@
     </select>
   </div>
   <div class="navbar_right">
-    <a href="/app/#/basket" ng-bind="'Basket: ' + '£' + total.toFixed(2)"></a>
+    <img id="cart" src="images/cart.png"><a href="/app/#/basket" id="basket" ng-bind="'Basket: ' + '£' + total.toFixed(2)"></a>
   </div>
 </nav>
 
@@ -22,7 +22,7 @@
       <p>{{item.price.toFixed(2) | currency:'£'}}</p>
       <p>Stock left: {{item.stock}}</p>
       <p>Category: {{item.category}}</p>
-      <input class="btn btn-primary add-to-basket" type="button" value="Add to Basket" ng-click="add(item); calculateTotal()">
+      <input class="add-to-basket btn btn-primary" type="button" value="Add to Basket" ng-click="add(item); calculateTotal()">
     </nav>
   </nav>
 </nav>

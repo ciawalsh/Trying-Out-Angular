@@ -40,3 +40,9 @@ h2 {
 .vouchers {
   margin-left: 1em;
 }
+
+#cart {
+  margin-right: 0.25em;
+  height: 25px;
+  width: 25px;
+}
