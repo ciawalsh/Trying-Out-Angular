@@ -31,3 +31,8 @@ body {
 .alert {
   margin-top: 1em;
 }
+
+h2 {
+  margin-left: 1em;
+  text-decoration: underline;
+}

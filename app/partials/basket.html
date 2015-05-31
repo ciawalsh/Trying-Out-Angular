@@ -2,27 +2,33 @@
 <div>
   <table class="table">
     <tr>
-      <th>Description</th>
-      <th>Qty</th>
-      <th>Cost</th>
-      <th>Total</th>
-      <th></th>
+      <div class="row">
+        <th>Description</th>
+        <th>Qty</th>
+        <th>Cost</th>
+        <th>Total</th>
+        <th></th>
+      </div>
     </tr>
     <tr ng-repeat='item in basket'>
-      <td>{{item.name}}</td>
-      <td ng-model="item.chosenAmount" ng-init="item.chosenAmount = 0">{{item.chosenAmount}}</td>
-      <td>{{item.cost}}</td>
-      <td>{{item.chosenAmount * item.cost | currency}}</td>
-      <td>
-          [<a href ng-click="removeItem($index)">X</a>]
-      </td>
+      <div class="row">
+        <td>{{item.name}} - ({{item.colour}})</td>
+        <td>{{item.chosenAmount}}</td>
+        <td>{{item.price.toFixed(2) | currency:'£'}}</td>
+        <td>{{item.chosenAmount * item.price | currency:'£'}}</td>
+        <td>
+            [<a href ng-click="removeItem(item)">X</a>]
+        </td>
+      </div>
     </tr>
     <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td>Total:</td>
-      <td>{{ calculateTotal() | currency:"£" }}</td>
+      <div class="row">
+        <td></td>
+        <td></td>
+        <td>Total:</td>
+        <td>{{calculateTotal() | currency:'£'}}</td>
+        <td></td>
+      </div>
     </tr>
   </table>
 </div>

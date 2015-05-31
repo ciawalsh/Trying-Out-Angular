@@ -1,6 +1,8 @@
-var shopControllers = angular.module('shopControllers', []);
+// var shopControllers = angular.module('shopControllers', []);
 
-shopControllers.controller('ShopListCtrl', ['$scope', '$http',
+// shopControllers
+
+shopApp.controller('ShopListCtrl', ['$scope', '$http',
   function($scope, $http) {
   $http.get('items/items.json').success(function(data) {
     $scope.items = data;
@@ -10,47 +12,37 @@ shopControllers.controller('ShopListCtrl', ['$scope', '$http',
   // ======= BASKET ========
 
   $scope.basket = [];
-  $scope.message = "Nothing here";
+  $scope.total = 0;
 
   $scope.add = function(item) {
-    // var chosenItem = $scope.items[item];
-    // var basketItem = {name: chosenItem.name, chosenAmount: chosenItem.stock, cost: chosenItem.price};
     console.log(item);
     
     if (item.stock > 0) {
       if($scope._isItemInBasket(item)){
-        item.chosenAmount += 1;
-        item.stock -= 1;
+        $scope._increaseItemInBasketQty(item);
       } else {
-        item.stock -= 1;
-        $scope.basket.push(item[0]);
-        $scope._updateMessage("Item added to your cart");
+        item.chosenAmount = 1;
+        $scope.basket.push(item);
       };
-    } else {
-      $scope._updateMessage("Sorry, Item out of Stock.");
     };
-    // console.log(item);
-    // if($scope._isItemInBasket) {
-    //   $scope._increaseItemInBasketQty(item);
-    // } else {
-    //   $scope.basket.push(item);
-    //   $scope.basket[item].chosenAmount = 1;
-    // };
-    // item.stock -= 1;
-    // console.log(item);
+    item.stock -= 1;
   };
 
   $scope.checkBasket = function() {
     console.log($scope.basket);
   };
 
-  // $scope.calculateTotal = function() {
+  $scope.calculateTotal = function() {
+    $scope.total = 0;
+    for(var i = 0; i < $scope.basket.length; i++) { 
+      $scope.total += ($scope.basket[i].price * $scope.basket[i].chosenAmount);
+    };
+    return $scope.total;
+  };
 
-  // };
-
-  // $scope.removeItem = function (index) {
-    
-  // };
+  $scope.removeItem = function (item) {
+    $scope.basket.pop(item);
+  };
 
   // ====== VOUCHERS =======
 
@@ -69,7 +61,7 @@ shopControllers.controller('ShopListCtrl', ['$scope', '$http',
 
   $scope._increaseItemInBasketQty = function (item) {
     var basketItem = $scope.basket.indexOf(item);
-    $scope.basket[item].chosenAmount += 1;
+    $scope.basket[basketItem].chosenAmount += 1;
   };
 
   $scope._updateMessage = function (string) {
